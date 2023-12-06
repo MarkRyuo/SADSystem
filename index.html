@@ -8,6 +8,26 @@
 <body>
     <h1>Library System</h1>
 
+     <!-- Student Login Form -->
+     <form action="process.php" method="post">
+      <h2>Student Login</h2>
+      <label for="username">Student ID:</label>
+      <input type="text" name="username" required>
+      <label for="password">Password:</label>
+      <input type="password" name="password" required>
+      <button type="submit" name="student_login">Login</button>
+  </form>
+
+  <!-- Admin Login Form -->
+  <form action="process.php" method="post">
+      <h2>Admin Login</h2>
+      <label for="username_admin">Username:</label>
+      <input type="text" name="username_admin" required>
+      <label for="password_admin">Password:</label>
+      <input type="password" name="password_admin" required>
+      <button type="submit" name="admin_login">Login</button>
+  </form>
+
     <!-- Borrow Book Form -->
     <form action="process.php" method="post">
         <h2>Borrow Book</h2>
