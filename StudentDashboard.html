@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <form action="process.php" method="post">
+    <h2>Borrow Book</h2>
+    <label for="book_id">Book ID:</label>
+    <input type="text" name="book_id" required>
+    <label for="student_name">Student Name:</label>
+    <input type="text" name="student_name" required>
+    <button type="submit" name="borrow">Borrow</button>
+</form>
+
+<!-- Return Book Form -->
+<form action="process.php" method="post">
+    <h2>Return Book</h2>
+    <label for="transaction_id">Transaction ID:</label>
+    <input type="text" name="transaction_id" required>
+    <button type="submit" name="return">Return</button>
+</form>
+  
+</body>
+</html>

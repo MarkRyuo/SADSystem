@@ -73,11 +73,12 @@ if (isset($_POST['return'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows === 1) {
-        // Student login successful
-        echo "Student login successful!";
-    } else {
-        echo "Invalid Student ID or password.";
-    }
+      // Student login successful
+      header("Location: /StudentDashboard.html"); // Redirect to the student dashboard
+      exit();
+  } else {
+      echo "Invalid Student ID or password.";
+  } 
   }
 
   // Admin Login
