@@ -54,4 +54,13 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <td>
                     <form action="return.php" method="post">
                         <input type="hidden" name="book_id" value="<?= $book['book_id'] ?>">
-                        <input type="
+                        <input type="submit" value="Return">
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+
+    <a href="logout.php">Logout</a>
+</body>
+</html>
