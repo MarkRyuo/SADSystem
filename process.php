@@ -17,24 +17,38 @@ if (isset($_POST['borrow'])) {
     $student_name = $_POST['student_name'];
 
     // Check if the book is available
-    $check_query = "SELECT * FROM books WHERE book_id = $book_id AND available = TRUE";
-    $result = $conn->query($check_query);
+    $check_query = "SELECT * FROM books WHERE book_id = ? AND available = TRUE";
+    $stmt = $conn->prepare($check_query);
+    $stmt->bind_param("i", $book_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // Book is available, proceed with the transaction
         $borrow_date = date("Y-m-d");
-        $insert_query = "INSERT INTO transactions (book_id, student_name, borrowed_date) VALUES ($book_id, '$student_name', '$borrow_date')";
-        $conn->query($insert_query);
+        $insert_query = "INSERT INTO transactions (book_id, student_name, borrowed_date) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($insert_query);
+        $stmt->bind_param("iss", $book_id, $student_name, $borrow_date);
+        $stmt->execute();
 
         // Update book availability status
-        $update_query = "UPDATE books SET available = FALSE WHERE book_id = $book_id";
-        $conn->query($update_query);
+        $update_query = "UPDATE books SET available = FALSE WHERE book_id = ?";
+        $stmt = $conn->prepare($update_query);
+        $stmt->bind_param("i", $book_id);
+        $stmt->execute();
 
         echo "Book borrowed successfully!";
     } else {
         echo "Book not available for borrowing.";
     }
+
+    // Check for errors
+    if ($stmt->error) {
+        echo "Query Error: " . $stmt->error;
+    }
 }
+
+
 
 // Return Book
 if (isset($_POST['return'])) {
@@ -62,24 +76,26 @@ if (isset($_POST['return'])) {
 }
 
   // Student Login
-  if (isset($_POST['student_login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+ // Student Login
+if (isset($_POST['student_login'])) {
+  $username = $_POST['username'];
+  $password = $_POST['password'];
 
-    // Check student login credentials in the database
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ? AND role = 'student'");
-    $stmt->bind_param("ss", $username, $password);
-    $stmt->execute();
-    $result = $stmt->get_result();
+  // Check student login credentials in the database
+  $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ? AND role = 'student'");
+  $stmt->bind_param("ss", $username, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
+  if ($result->num_rows === 1) {
       // Student login successful
-      header("Location: /StudentDashboard.html"); // Redirect to the student dashboard
+      header("Location: /StudentDashboard.html"); // Adjust the path as needed
       exit();
   } else {
       echo "Invalid Student ID or password.";
-  } 
   }
+}
+
 
   // Admin Login
   if (isset($_POST['admin_login'])) {

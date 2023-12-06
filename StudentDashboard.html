@@ -3,7 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Library System</title>
+  <!-- Add a simple stylesheet to make the alert look better -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
 
@@ -13,16 +25,30 @@
     <input type="text" name="book_id" required>
     <label for="student_name">Student Name:</label>
     <input type="text" name="student_name" required>
+    <label for="borrow_date">Borrow Date:</label>
+    <input type="date" name="borrow_date" required>
     <button type="submit" name="borrow">Borrow</button>
 </form>
 
-<!-- Return Book Form -->
-<form action="process.php" method="post">
+
+  <!-- Return Book Form -->
+  <form action="process.php" method="post">
     <h2>Return Book</h2>
     <label for="transaction_id">Transaction ID:</label>
     <input type="text" name="transaction_id" required>
     <button type="submit" name="return">Return</button>
-</form>
-  
+  </form>
+
+  <!-- Logout Button and Script -->
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    function logout() {
+        alert("Logout successful!");
+        // Redirect to a logout page or perform other actions as needed
+        window.location.href = "index.html"; // Change "logout.php" to the actual logout page
+    }
+</script>
+
 </body>
 </html>
