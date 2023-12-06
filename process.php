@@ -61,6 +61,46 @@ if (isset($_POST['return'])) {
     }
 }
 
+  // Student Login
+  if (isset($_POST['student_login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Check student login credentials in the database
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ? AND role = 'student'");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        // Student login successful
+        echo "Student login successful!";
+    } else {
+        echo "Invalid Student ID or password.";
+    }
+  }
+
+  // Admin Login
+  if (isset($_POST['admin_login'])) {
+    $username_admin = $_POST['username_admin'];
+    $password_admin = $_POST['password_admin'];
+
+    // Check admin login credentials in the database
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND password = ? AND role = 'admin'");
+    $stmt->bind_param("ss", $username_admin, $password_admin);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        // Admin login successful
+        echo "Admin login successful!";
+    } else {
+        echo "Invalid admin username or password.";
+    }
+  }
+
+
+
 // Close the database connection
 $conn->close();
 ?>
