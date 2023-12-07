@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/CSS/login.css">
+  <title>Document</title>
 </head>
 <body>
-    <h2>Login</h2>
-    <form action="login.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br>
+  <div class="wrapper">
+    <div class="card-switch">
+        <label class="switch">
+           <input type="checkbox" class="toggle">
+           <span class="slider"></span>
+           <span class="card-side"></span>
+           <div class="flip-card__inner">
+              <div class="flip-card__front">
+                 <div class="title">Log in</div>
 
-        <label for="role">Role:</label>
-        <select name="role">
-            <option value="admin">Admin</option>
-            <option value="student">Student</option>
-        </select><br>
+                 <form class="flip-card__form" action="login.php" method="post">
+                    <input class="flip-card__input" name="username" placeholder="Username" type="text">
+                    <input class="flip-card__input" name="password" placeholder="Password" type="password">
+                    <select name="role" class="flip-card__input">
+                      <option value="admin">Admin</option>
+                      <option value="student">Student</option>
+                    </select>
+                    <button class="flip-card__btn">Let`s go!</button>
+                 </form>
 
-        <input type="submit" value="Login">
-    </form>
+              </div>
+
+              <div class="flip-card__back">
+                 <div class="title">Sign up</div>
+
+                 <form class="flip-card__form" action="signup_process.php" method="post">
+                  <select name="role" class="flip-card__input">
+                    <option value="admin">Admin</option>
+                    <option value="student">Student</option>
+                  </select>
+                    <input class="flip-card__input" placeholder="Username" type="text">
+                    <input class="flip-card__input" name="password" placeholder="Password" type="password">
+                    <button class="flip-card__btn">Confirm!</button>
+                 </form>
+
+              </div>
+           </div>
+        </label>
+    </div>   
+</div>
 </body>
 </html>
