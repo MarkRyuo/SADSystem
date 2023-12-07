@@ -14,6 +14,8 @@
     align-items: center;
 
     margin-top: 40vh;
+    margin-right: 8vw;
+    /* border: 1px solid black; */
 }
 /* switch card */
 .switch {
@@ -201,3 +203,6 @@
   color: var(--font-color);
   cursor: pointer;
 } 
+
+
+/* flip-card__front */
