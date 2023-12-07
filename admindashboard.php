@@ -91,6 +91,7 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
         th, td {
             padding: 10px;
             text-align: left;
+            text-align: center;
         }
 
         th {
