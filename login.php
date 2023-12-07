@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: student_dashboard.php");
         }
     } else {
+        header("Location: index.html");
         echo "Invalid credentials.";
     }
 }
