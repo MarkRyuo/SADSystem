@@ -25,7 +25,7 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0; /* Set margin to 0 to remove the space at the top */
         }
 
         h2, h3 {
@@ -33,17 +33,36 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
         }
 
         nav {
-            background-color: #007BFF;
-            padding: 10px;
-            text-align: right;
+            background-color: #fff;
+            /* border: 1px solid black; */
+            box-shadow: 2px 2px 5px #ddd;
+            height: 9vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
         }
 
         nav a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: #fff;
             text-decoration: none;
-            margin-left: 10px;
-            padding: 5px 10px;
+            margin-top: 2vh;
+            margin-right: 10vw;
             border-radius: 5px;
+            background-color: #007BFF;
+            height: 5vh;
+            width: 6vw;
+            margin-bottom: 2vh;
+        }
+
+        nav h1 {
+            margin-left: 10vw;
+        }
+
+        nav a:hover {
             background-color: #0056b3;
         }
 
@@ -72,24 +91,16 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
         th {
             background-color: #f2f2f2;
         }
-
-        .logout-link {
-            margin-top: 20px;
-            color: #007BFF;
-            text-decoration: none;
-        }
     </style>
 </head>
 <body>
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <h1>Welcome, Admin!</h1>
         <a href="/index.html">Logout</a>
     </nav>
 
     <div class="container">
-        <h2>Welcome, Admin!</h2>
+        
 
         <h3>Borrowed Books</h3>
         <table>
