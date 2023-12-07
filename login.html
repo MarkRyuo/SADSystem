@@ -32,9 +32,12 @@
               <div class="flip-card__back">
                  <div class="title">Sign up</div>
 
-                 <form class="flip-card__form" action="">
-                    <input class="flip-card__input" placeholder="Name" type="name">
-                    <input class="flip-card__input" name="email" placeholder="Email" type="email">
+                 <form class="flip-card__form" action="signup_process.php" method="post">
+                  <select name="role" class="flip-card__input">
+                    <option value="admin">Admin</option>
+                    <option value="student">Student</option>
+                  </select>
+                    <input class="flip-card__input" placeholder="Username" type="text">
                     <input class="flip-card__input" name="password" placeholder="Password" type="password">
                     <button class="flip-card__btn">Confirm!</button>
                  </form>
