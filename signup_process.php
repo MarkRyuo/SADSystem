@@ -20,11 +20,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($insert_result) {
             // Display an alert on successful registration
-            echo '<script>alert("Registered successfully. You can now log in.");</script>';
-            // You can redirect the user to the login page if needed.
+            echo '<script>alert("Registered successfully. You can now log in.");';
+            echo 'window.location.href = "index.html";</script>';
+            // Redirect the user to the login page
         } else {
             echo "Error in registration. Please try again.";
         }
     }
 }
 ?>
+
