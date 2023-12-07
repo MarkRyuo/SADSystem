@@ -61,6 +61,6 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php endforeach; ?>
     </table>
 
-    <a href="logout.php">Logout</a>
+    <a href="/index.html">Logout</a>
 </body>
 </html>
