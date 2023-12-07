@@ -71,6 +71,11 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
             flex-direction: column;
             align-items: center;
             text-align: center;
+            justify-content: space-evenly;
+
+            box-shadow: 2px 2px 4px #ddd;
+
+            height: 50vh;
         }
 
         table {
@@ -102,7 +107,7 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <div class="container">
         
 
-        <h3>Borrowed Books</h3>
+        <h3>Student's Borrowed Books</h3>
         <table>
             <tr>
                 <th>User ID</th>
@@ -120,7 +125,7 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php endforeach; ?>
         </table>
 
-        <h3>Returned Books</h3>
+        <h3>Student's Returned Books</h3>
         <table>
             <tr>
                 <th>User ID</th>
