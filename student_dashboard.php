@@ -33,6 +33,8 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            width: 100vw;
+            height: 10vh;
 
         }
 
@@ -63,6 +65,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
         }
     </style>
 </head>
@@ -73,16 +76,16 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </nav>
 
     <section>
-        <h3>Available Books</h3>
-    <form action="borrow.php" method="post">
-        <label for="book_id">Select a Book:</label>
-        <select name="book_id">
-            <?php foreach ($books as $book): ?>
-                <option value="<?= $book['id'] ?>"><?= $book['title'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <input type="submit" value="Borrow">
-     </form>
+        <h2>Available Books</h2>
+        <form action="borrow.php" method="post">
+            <label for="book_id">Select a Book:</label>
+            <select name="book_id">
+                <?php foreach ($books as $book): ?>
+                    <option value="<?= $book['id'] ?>"><?= $book['title'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <input type="submit" value="Borrow">
+        </form>
 
         <h3>Your Borrowed Books</h3>
         <table border="1">
