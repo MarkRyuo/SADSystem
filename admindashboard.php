@@ -102,7 +102,7 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <body>
     <nav>
         <h1>Welcome, Admin!</h1>
-        <a href="/index.html">Logout</a>
+        <a href="/index.html" onclick="confirmLogout()">Logout</a>
     </nav>
 
     <div class="container">
@@ -147,4 +147,12 @@ $returnedBooks = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
     <!-- <a href="/index.html" class="logout-link">Logout</a> -->
 </body>
+<script>
+        function confirmLogout() {
+            var isConfirmed = confirm("Are you sure you want to logout?");
+            if (isConfirmed) {
+                window.location.href = "/index.html";
+            }
+        }
+    </script>
 </html>
