@@ -17,11 +17,62 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Student Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            background-color: #f1f1f1;
+            padding: 20px;
+        }
+
+        nav a {
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <h2>Welcome, Student!</h2>
+    <header>
+        <h2>Welcome, Student!</h2>
+    </header>
 
-    <h3>Available Books</h3>
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Available Books</a>
+        <a href="#">Your Borrowed Books</a>
+        <a href="logout.php">Logout</a> <!-- Assuming logout.php contains your logout logic -->
+    </nav>
+
+    <section>
+        <h3>Available Books</h3>
     <form action="borrow.php" method="post">
         <label for="book_id">Select a Book:</label>
         <select name="book_id">
@@ -30,10 +81,10 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <?php endforeach; ?>
         </select>
         <input type="submit" value="Borrow">
-    </form>
+     </form>
 
-    <h3>Your Borrowed Books</h3>
-    <table border="1">
+        <h3>Your Borrowed Books</h3>
+        <table border="1">
         <tr>
             <th>Book ID</th>
             <th>Borrow Date</th>
@@ -61,6 +112,6 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <?php endforeach; ?>
     </table>
 
-    <a href="/index.html">Logout</a>
+    </section>
 </body>
 </html>
