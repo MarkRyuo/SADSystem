@@ -22,34 +22,41 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            width: 100%;
+            margin: 0;
         }
 
         nav {
+            background-color: #fff;
+            /* border: 1px solid black; */
+            box-shadow: 2px 2px 5px #ddd;
+            height: 9vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            width: 200px;
-            background-color: #f1f1f1;
-            padding: 20px;
+            justify-content: space-between;
+
         }
 
         nav a {
-            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
+            margin-top: 2vh;
+            margin-right: 10vw;
+            border-radius: 5px;
+            background-color: #007BFF;
+            height: 5vh;
+            width: 6vw;
+            margin-bottom: 2vh;
+        }
+
+        nav h1 {
+            margin-left: 10vw;
         }
 
         nav a:hover {
-            background-color: #ddd;
+            background-color: #0056b3;
         }
 
         section {
@@ -60,15 +67,9 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </style>
 </head>
 <body>
-    <header>
-        <h2>Welcome, Student!</h2>
-    </header>
-
     <nav>
-        <a href="#">Dashboard</a>
-        <a href="#">Available Books</a>
-        <a href="#">Your Borrowed Books</a>
-        <a href="logout.php">Logout</a> <!-- Assuming logout.php contains your logout logic -->
+        <h1>Welcome, Student!</h1>
+        <a href="/index.html" onclick="confirmLogout()">Logout</a>
     </nav>
 
     <section>
