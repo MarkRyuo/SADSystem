@@ -23,11 +23,11 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             flex-direction: column;
             align-items: center;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
 
         nav {
             background-color: #fff;
-            /* border: 1px solid black; */
             box-shadow: 2px 2px 5px #ddd;
             height: 9vh;
             display: flex;
@@ -35,7 +35,6 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             justify-content: space-between;
             width: 100vw;
             height: 10vh;
-
         }
 
         nav a {
@@ -66,6 +65,31 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             flex-direction: column;
             align-items: center;
             text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
         }
     </style>
 </head>
