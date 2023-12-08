@@ -65,6 +65,14 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             flex-direction: column;
             align-items: center;
             text-align: center;
+
+            /* border: 1px solid black; */
+
+            width: 90vw;
+            height: 60vh;
+
+            box-shadow: 2px 2px 4px #ddd;
+            border-radius: 30px;
         }
 
         table {
@@ -77,6 +85,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             padding: 15px;
             text-align: left;
             border: 1px solid #ddd;
+            text-align: center;
         }
 
         th {
@@ -91,6 +100,29 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
         tr:hover {
             background-color: #ddd;
         }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f2f2f2; /* Dropdown background color */
+            color: #333;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -100,7 +132,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
     </nav>
 
     <section>
-        <h2>Available Books</h2>
+        <h2 style="font-size: 2.1rem;">Available Books</h2>
         <form action="borrow.php" method="post">
             <label for="book_id">Select a Book:</label>
             <select name="book_id">
@@ -111,7 +143,7 @@ $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
             <input type="submit" value="Borrow">
         </form>
 
-        <h3>Your Borrowed Books</h3>
+        <h2 style="font-size: 2rem;">Your Borrowed Books</h2>
         <table border="1">
         <tr>
             <th>Book ID</th>
